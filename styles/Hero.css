@@ -1,0 +1,54 @@
+.hero-buttons {
+  display: flex;
+  gap: 20px; /* space between buttons */
+}
+
+.cta-button.blue {
+  background-color: #0d0d0d; /* dark background for neon effect */
+  color: #00f0ff; /* neon cyan text */
+  border: 2px solid #00f0ff;
+  padding: 12px 25px;
+  font-size: 1rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+  box-shadow: 0 0 5px #00f0ff, 0 0 10px #00f0ff, 0 0 20px #00f0ff, 0 0 40px #00f0ff;
+}
+
+.cta-button.blue:hover {
+  color: #ffffff;
+  box-shadow: 0 0 10px #00f0ff, 0 0 20px #00f0ff, 0 0 40px #00f0ff, 0 0 80px #00f0ff;
+  transform: scale(1.05);
+}
+.hero-section {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background: linear-gradient(
+    -45deg,
+    #000000,
+    #050505,
+    #001f2f,
+    #00bcd4
+  );
+
+  background-size: 400% 400%;
+  animation: flowBackground 10s ease infinite;
+}
+
+/* Smooth neon flow */
+@keyframes flowBackground {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}

@@ -1,0 +1,200 @@
+/* =========================
+   Section Container
+========================= */
+.cert-section {
+  padding: 4rem 2rem;
+  background: #0d0d0d;
+  color: #fff;
+  text-align: center;
+}
+
+/* Section Title */
+.section-title {
+  font-size: 2.5rem;
+  color: #00ffff;
+  margin-bottom: 2.5rem;
+  text-align: center;
+}
+
+/* =========================
+   Grid Container
+========================= */
+.cert-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 3rem;
+  justify-items: center;
+  align-items: center; /* Ensures vertical centering */
+  perspective: 1200px;
+  margin: 0 auto;
+  max-width: 1200px;
+}
+
+/* =========================
+   Logo Item (3D Floating Card)
+========================= */
+.logo-item {
+  position: relative;
+  cursor: pointer;
+  transform-style: preserve-3d;
+  animation:
+    floatIdle 6s ease-in-out infinite,
+    sway3D 10s ease-in-out infinite;
+}
+
+.logo-item:nth-child(odd) {
+  animation-delay: -2s, -4s;
+}
+.logo-item:nth-child(even) {
+  animation-delay: -4s, -1s;
+}
+
+/* Floating Motion */
+@keyframes floatIdle {
+  0%   { transform: translateY(0); }
+  50%  { transform: translateY(-12px); }
+  100% { transform: translateY(0); }
+}
+
+/* 3D Sway Motion */
+@keyframes sway3D {
+  0%   { transform: rotateX(0deg) rotateY(0deg); }
+  50%  { transform: rotateX(10deg) rotateY(-10deg); }
+  100% { transform: rotateX(0deg) rotateY(0deg); }
+}
+
+/* =========================
+   Certificate Logo
+========================= */
+.cert-logo {
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
+  margin-bottom: 0.5rem;
+
+  background: #4e5a5b;
+  padding: 10px;
+  border-radius: 12px;
+
+  /* Breathing neon glow */
+  animation: neonBreathe 4s ease-in-out infinite;
+}
+
+@keyframes neonBreathe {
+  0% {
+    box-shadow: 0 0 6px rgba(0, 255, 255, 0.25);
+  }
+  50% {
+    box-shadow:
+      0 0 18px rgba(0, 255, 255, 0.6),
+      0 0 36px rgba(0, 255, 255, 0.3);
+  }
+  100% {
+    box-shadow: 0 0 6px rgba(0, 255, 255, 0.25);
+  }
+}
+
+/* =========================
+   Hologram Orbit Ring
+========================= */
+.logo-item::before {
+  content: "";
+  position: absolute;
+  inset: -20px;
+  border-radius: 50%;
+  border: 1px dashed rgba(0, 255, 255, 0.45);
+  transform: rotateX(75deg);
+  animation: orbitRing 8s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes orbitRing {
+  from { transform: rotateX(75deg) rotateZ(0deg); }
+  to   { transform: rotateX(75deg) rotateZ(360deg); }
+}
+
+/* =========================
+   Provider Name
+========================= */
+.logo-item p {
+  transition: transform 0.6s ease, color 0.6s ease;
+  margin: 0;
+  font-size: 0.95rem;
+}
+
+.logo-item:hover p {
+  transform: translateY(-6px) translateZ(20px);
+  color: #00ffff;
+}
+
+/* =========================
+   Hover Enhancement
+========================= */
+.logo-item:hover {
+  transform: translateZ(40px) scale(1.08);
+}
+
+/* =========================
+   Modal
+========================= */
+.modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modal-inner {
+  position: relative;
+}
+
+.modal-content {
+  max-width: 80vw;
+  max-height: 80vh;
+  border: 2px solid #00ffff;
+  border-radius: 8px;
+}
+
+/* =========================
+   Modal Controls
+========================= */
+.close {
+  position: absolute;
+  top: -40px;
+  right: 0;
+  font-size: 3rem;
+  cursor: pointer;
+  color: #00ffff;
+}
+
+.arrow {
+  cursor: pointer;
+  font-size: 3rem;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #00ffff;
+  user-select: none;
+}
+
+.arrow.left { left: -50px; }
+.arrow.right { right: -50px; }
+
+/* =========================
+   Responsive
+========================= */
+@media (max-width: 1024px) {
+  .cert-grid { gap: 2.5rem; }
+  .cert-logo { width: 90px; height: 90px; }
+}
+
+@media (max-width: 768px) {
+  .cert-grid { gap: 2rem; }
+  .cert-logo { width: 80px; height: 80px; }
+  .logo-item { animation: floatIdle 4s ease-in-out infinite; }
+  .arrow.left { left: -30px; }
+  .arrow.right { right: -30px; }
+}

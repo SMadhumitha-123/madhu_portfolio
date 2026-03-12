@@ -1,0 +1,71 @@
+body {
+  margin: 0;
+  background: transparent;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* =======================
+   Floating Particles BG
+======================= */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+
+  background-image:
+    radial-gradient(#00eaff 1px, transparent 1px),
+    radial-gradient(#00eaff 1px, transparent 1px);
+  background-size: 50px 50px, 80px 80px;
+  background-position: 0 0, 20px 20px;
+
+  animation: floatParticles 15s linear infinite;
+  opacity: 0.25;
+}
+
+@keyframes floatParticles {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-200px);
+  }
+}
+
+/* =======================
+   Cursor Star Pop
+======================= */
+.cursor-pop {
+  position: fixed;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 99999;
+
+  background: #00ffff;
+  box-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff;
+
+  transform: translate(-50%, -50%) scale(0);
+  animation: singlePop 0.25s ease-out forwards;
+}
+
+@keyframes singlePop {
+  0% {
+    transform: translate(-50%, -50%) scale(0);
+    opacity: 1;
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(0);
+    opacity: 0;
+  }
+}
