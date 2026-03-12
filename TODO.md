@@ -1,0 +1,3 @@
+- [x] Update faq.js with new FAQ entries for education, certificates, achievements, and hobbies
+- [x] Update sectionMapping in ChatBot.jsx to include new sections
+- [x] Test the chatbot functionality

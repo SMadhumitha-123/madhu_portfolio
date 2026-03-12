@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Madhumitha S</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+  <script>
+  let lastTime = 0;
+
+  function createPop(x, y) {
+    const pop = document.createElement("div");
+    pop.className = "cursor-pop";
+    pop.style.left = `${x}px`;
+    pop.style.top = `${y}px`;
+
+    document.body.appendChild(pop);
+
+    // remove after animation completes
+    setTimeout(() => pop.remove(), 250);
+  }
+
+  /* 🖱 Desktop */
+  document.addEventListener("mousemove", (e) => {
+    const now = Date.now();
+    if (now - lastTime < 150) return; // limit pops
+    lastTime = now;
+
+    createPop(e.clientX, e.clientY);
+  });
+
+  /* 📱 Mobile swipe only */
+  document.addEventListener("touchmove", (e) => {
+    const now = Date.now();
+    if (now - lastTime < 150) return;
+    lastTime = now;
+
+    const touch = e.touches[0];
+    createPop(touch.clientX, touch.clientY);
+  });
+</script>
+
+</html>
