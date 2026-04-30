@@ -28,13 +28,7 @@ const projects = [
   demo: "https://drive.google.com/file/d/1HHuTlxQ-z_AmRAxReRlVuZ4Fg1LEbATS/view?usp=drive_link",
   
 },
-{
-    title: "Aaranya Arc - AI based Website for Zoo",
-    description: "A responsive and visually engaging zoo management and information website designed to showcase wildlife conservation, animal details, ticket booking, and visitor services. The platform provides an interactive user experience with structured navigation, educational content, and modern UI design to promote awareness about biodiversity and animal conservation.",
-    tech: "HTML5, CSS3, JavaScript",
-    image: "/images/zoo.png",
-    demo: "https://drive.google.com/file/d/1iEE949gHZCLsEJ5U2aWZ1-dRKMIIpLeL/view?usp=drive_link"
-  },
+
   {
     title: "AI Code Snippet Generator",
     description: "This is a team project: An AI-powered desktop application that converts natural language programming requests into ready-to-use code snippets with clear explanations using Large Language Models (LLMs). The system features secure user authentication, conversation history management, theme customization, and local-first storage to ensure privacy, reproducibility, and an interactive developer-friendly experience.",
